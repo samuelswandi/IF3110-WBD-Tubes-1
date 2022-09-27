@@ -19,6 +19,7 @@
         <button class="signUpBtn">SIGN UP</button>
         <button class="loginBtn">LOG IN</button>
       </div>
+      <!------ Register Form -------- -->
       <form class="signUp" action="register.php" method="post">
         <div class="formGroup">
           <input type="name" placeholder="Username" name="username" required autocomplete="off">
