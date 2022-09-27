@@ -4,7 +4,7 @@ server with default setting (user 'root' with no password) */
 define('DB_SERVER', '127.0.0.1');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'password');
-define('DB_NAME', 'php_mysql');
+define('DB_NAME', 'mysql_local');
 define('PORT', 3306);
  
 /* Attempt to connect to MySQL database */

@@ -1,0 +1,14 @@
+version: '1.0'
+services:
+    mysql-local:
+        build: .
+        container_name: mysql_local
+        ports:
+            - "33061:3306"
+        environment:
+            MYSQL_ROOT_USER: root
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: mysql_local   
+
+volumes:
+    db_data:
