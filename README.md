@@ -1,6 +1,6 @@
 # WBD-1
 
-## How to run
+## How to run (Mac only)
 ```
-docker b
+php -S localhost:8080
 ```
