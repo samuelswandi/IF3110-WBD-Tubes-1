@@ -1,0 +1,9 @@
+List of Features:
+
+1. Registrasi user
+2. Login dan Logout mechanism
+3. Reset password
+4. User dapat melihat seluruh catatan yang telah dibuat
+5. User menyimpan catatan baru dan disimpan di dalam database
+
+sql sanitized

@@ -1,0 +1,32 @@
+body {
+    font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	
+}
+
+.login-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+
+    opacity: .5;
+    color: #fff;
+    background-color: #000;
+    border-radius: 10px;
+    padding: 20px;
+    row-gap: 20px;
+}
+
+.login-form {
+    width: 550px;
+}
