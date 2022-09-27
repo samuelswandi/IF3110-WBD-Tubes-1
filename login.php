@@ -1,10 +1,19 @@
 <?php
-    $mysqli = new mysqli("127.0.0.1","root","password","php_mysql", 3306);
+    require_once "config.php";
+    # get user data from post form
+    $email = $_POST["email"];
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    // Check connection
-    if ($mysqli -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();
-    }
-    echo "Connected successfully";
+    # check if email existed or not
+    $query = "SELECT * FROM users WHERE email='$email' AND password='password'";
+    $res = mysqli_query($mysqli, $query);
+    if (mysqli_num_rows($res) != 1) {
+        exit('woe siapa lu ajg');
+    } 
+
+    $hashed_password = "";
+    if(password_verify($password, $hashed_password)) {
+        echo "anjay masuk";
+    } 
+
 ?>

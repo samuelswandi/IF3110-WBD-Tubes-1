@@ -1,11 +1,5 @@
 <?php
-    # connect to local mysql
-    $mysqli = new mysqli("127.0.0.1","root","password","php_mysql", 3306);
-    if ($mysqli -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();
-    }
-
+    require_once "config.php";
     # get user data from post form
     $username = $_POST["username"];
     $email = $_POST["email"];
@@ -34,4 +28,5 @@
       } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
       }
+    
 ?>

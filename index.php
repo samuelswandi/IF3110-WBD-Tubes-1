@@ -40,10 +40,10 @@
       </form>
 
       <!------ Login Form -------- -->
-      <form class="login" action="login.php" method="get">
+      <form class="login" action="login.php" method="post">
 
         <div class="formGroup">
-          <input type="email" placeholder="Email ID" name="email" required autocomplete="off">
+          <input type="email" placeholder="Email" name="email" required autocomplete="off">
         </div>
         <div class="formGroup">
           <input type="password" id="loginPassword" name="password" placeholder="Password" required autocomplete="off">
