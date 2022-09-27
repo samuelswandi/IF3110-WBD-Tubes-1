@@ -27,7 +27,7 @@
           <input type="email" placeholder="Email" name="email" required autocomplete="off">
         </div>
         <div class="formGroup">
-          <input type="password" id="signupPassword" placeholder="Password" required autocomplete="off">
+          <input type="password" id="signupPassword" name="password" placeholder="Password" required autocomplete="off">
         </div>
         <div class="formGroup">
           <input type="password" id="confirmPassword" placeholder="Confirm Password" required autocomplete="off">
@@ -45,7 +45,7 @@
           <input type="email" placeholder="Email ID" name="email" required autocomplete="off">
         </div>
         <div class="formGroup">
-          <input type="password" id="loginPassword" placeholder="Password" required autocomplete="off">
+          <input type="password" id="loginPassword" name="password" placeholder="Password" required autocomplete="off">
         </div>
         <div class="formGroup">
           <input type="submit" class="btn2" value="LOGIN">
