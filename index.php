@@ -3,7 +3,7 @@
 // session start
 session_start();
 
-// redirect if user has logged in 
+// redirect if user has logged in
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: homepage.php");
     exit;
@@ -12,11 +12,11 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "config.php";
 
 # initial variable, set empty strings
-// $username = $password = "";
+$username = $password = "";
 $usernameErr = $passwordErr = $loginErr = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
+
     // set username and password from form
     $username = trim($_POST["username"]);
     $password = trim($_POST["password"]);
@@ -25,10 +25,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($usernameErr) && empty($passwordErr)){
         // query to database
         $sql = "SELECT id, username, password FROM users WHERE username = ?";
-        
+
         // mysqli_prepare will return false if error occured
         if($stmt = mysqli_prepare($dbConn, $sql)){
-            
+
             // bind var to make param of prepared statement
             mysqli_stmt_bind_param($stmt, "s", $paramUsername);
 
@@ -37,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                
+
                 // store result in internal buffer
                 mysqli_stmt_store_result($stmt);
 

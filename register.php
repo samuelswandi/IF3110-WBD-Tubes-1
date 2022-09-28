@@ -2,7 +2,7 @@
 // session start
 session_start();
 
-// redirect if user has logged in 
+// redirect if user has logged in
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: homepage.php");
     exit;
@@ -11,7 +11,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 require_once "config.php";
 
 # initial variable, set empty strings
-// $username = $password = $confirmPassword = "";
+$username = $password = $confirmPassword = "";
 $usernameErr = $passwordErr = $confirmPasswordErr = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
