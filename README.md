@@ -8,11 +8,10 @@ cd WBD-1
 
 ### 2. Create local database using docker
 ```
-cd database
-docker-compose up -d
+cd database/docker-compose up -d
 ```
 
 ### 3. Run php server
 ```
-php -S localhost:8080
+cd ../php -S localhost:8080
 ```
