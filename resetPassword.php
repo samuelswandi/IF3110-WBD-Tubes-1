@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is logged in, otherwise redirect to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
+    header("location: index.php");
     exit;
 }
 
@@ -12,49 +12,47 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$new_password = $confirm_password = "";
-$new_password_err = $confirm_password_err = "";
+$newPassword = $confirmPassword = "";
+$newPasswordErr = $confirmPasswordErr = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate new password
-    if(empty(trim($_POST["new_password"]))){
-        $new_password_err = "Please enter the new password.";
-    } elseif(strlen(trim($_POST["new_password"])) < 6){
-        $new_password_err = "Password must have atleast 6 characters.";
+    if(empty(trim($_POST["newPassword"]))){
+        $newPasswordErr = "Please enter the new password.";
     } else{
-        $new_password = trim($_POST["new_password"]);
+        $newPassword = trim($_POST["newPassword"]);
     }
 
     // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm the password.";
+    if(empty(trim($_POST["confirmPassword"]))){
+        $confirmPasswordErr = "Please confirm the password.";
     } else{
-        $confirm_password = trim($_POST["confirm_password"]);
-        if(empty($new_password_err) && ($new_password != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+        $confirmPassword = trim($_POST["confirmPassword"]);
+        if(empty($newPasswordErr) && ($newPassword != $confirmPassword)){
+            $confirmPasswordErr = "Password did not match.";
         }
     }
 
     // Check input errors before updating the database
-    if(empty($new_password_err) && empty($confirm_password_err)){
+    if(empty($newPasswordErr) && empty($confirmPasswordErr)){
         // Prepare an update statement
         $sql = "UPDATE users SET password = ? WHERE id = ?";
 
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($dbConn, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "si", $param_password, $param_id);
+            mysqli_stmt_bind_param($stmt, "si", $paramPassword, $paramId);
 
             // Set parameters
-            $param_password = password_hash($new_password, PASSWORD_DEFAULT);
-            $param_id = $_SESSION["id"];
+            $paramPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            $paramId = $_SESSION["id"];
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Password updated successfully. Destroy the session, and redirect to login page
                 session_destroy();
-                header("location: login.php");
+                header("location: index.php");
                 exit();
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -66,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 
     // Close connection
-    mysqli_close($link);
+    mysqli_close($dbConn);
 }
 ?>
 
@@ -88,17 +86,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
                 <label>New Password</label>
-                <input type="password" name="new_password" class="form-control <?php echo (!empty($new_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $new_password; ?>">
-                <span class="invalid-feedback"><?php echo $new_password_err; ?></span>
+                <input type="password" name="newPassword" class="form-control <?php echo (!empty($newPasswordErr)) ? 'is-invalid' : ''; ?>" value="<?php echo $newPassword; ?>">
+                <span class="invalid-feedback"><?php echo $newPasswordErr; ?></span>
             </div>
             <div class="form-group">
                 <label>Confirm Password</label>
-                <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>">
-                <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                <input type="password" name="confirmPassword" class="form-control <?php echo (!empty($confirmPasswordErr)) ? 'is-invalid' : ''; ?>">
+                <span class="invalid-feedback"><?php echo $confirmPasswordErr; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <a class="btn btn-link ml-2" href="welcome.php">Cancel</a>
+                <a class="btn btn-link ml-2" href="homepage.php">Cancel</a>
             </div>
         </form>
     </div>
