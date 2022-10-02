@@ -25,8 +25,8 @@
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <style>
-          .outer-wrapper{height: 60vh; display: flex; justify-content: right; align-items: center; padding: 24vh}
-      </style>
+      .outer-wrapper{height: 80vh; margin-right:20vw; display: flex; justify-content: right; align-items: center;}
+    </style>
     <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />`
 </head>
 
@@ -75,7 +75,7 @@
     </div>
   </aside>
   <div class="outer-wrapper">
-    <div class="main-content d-flex justify-content-center" style="margin-top:20vh;">
+    <div class="main-content">
       <h1>Welcome to Notey,  <?php echo htmlspecialchars($_SESSION["username"]);?>! 🤓 🙌🏼</h1>
     </div>
   </div>
