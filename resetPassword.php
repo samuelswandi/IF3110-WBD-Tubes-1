@@ -15,9 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
+  <title>Notey. 📝</title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
@@ -34,35 +32,47 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main" style="padding-top: 15vh;">
     <hr class="horizontal dark mt-0">
     <div class="text-center">
-      <h2>Notey.</h2>
+      <h2>Notey. 📝</h2>
     </div>
     <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="homepage.php">
-            <span class="nav-link-text ms-1">Home</span>
+            <span class="nav-link-text ms-1">🏠 Home</span>
           </a>
         </li>
         <li class="nav-item mb-2"">
-          <a class="nav-link  active" href="../pages/dashboard.html">
-            <span class="nav-link-text ms-1">Notes</span>
+          <a class="nav-link  active" href="newNotes.php">
+            <span class="nav-link-text ms-1">➕ New Note</span>
+          </a>
+        </li>
+        <li class="nav-item mb-2"">
+          <a class="nav-link  active" href="allNotes.php">
+            <span class="nav-link-text ms-1">📖 View All Notes</span>
           </a>
         </li>
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="resetPassword.php">
-            <span class="nav-link-text ms-1">Reset Password</span>
+            <span class="nav-link-text ms-1">🔐 Reset Password</span>
           </a>
         </li>
+        <?php if ($_SESSION["role"] == 1){ ?>
+          <li class="nav-item mb-2"">
+          <a class="nav-link  active" href="allUser.php">
+            <span class="nav-link-text ms-1">👥 View All User</span>
+          </a>
+        </li>
+        <?php }?>
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="logout.php">
-            <span class="nav-link-text ms-1">Logout</span>
+            <span class="nav-link-text ms-1">🚪 Logout</span>
           </a>
         </li>
       </ul>
     </div>
   </aside>
   <div class="main-content d-flex justify-content-center" style="margin-top:20vh;">
-      <?php include_once './references/oldResetPassword.php';?>
+      <?php include_once './content/resetPasswordContent.php';?>
   </div>
   </div>
   <!--   Core JS Files   -->

@@ -20,7 +20,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </style>
 </head>
 <body>
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to <b>Noty</b> .</h1>
+    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to <b>Notey. 📝<</b> .</h1>
     <p>
         <a href="newNotes.php" class="btn btn-success ml-3">Create new note</a>
         <a href="notes.php" class="btn btn-info ml-3">View all note</a>

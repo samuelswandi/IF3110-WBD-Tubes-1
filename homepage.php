@@ -11,22 +11,23 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Soft UI Dashboard by Creative Tim
-  </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- rc="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>Notey. 📝</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- rc="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <style>
+          .outer-wrapper{height: 60vh; display: flex; justify-content: right; align-items: center; padding: 24vh}
+      </style>
+    <link id="pagestyle" href="../assets/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />`
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -34,35 +35,49 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main" style="padding-top: 15vh;">
     <hr class="horizontal dark mt-0">
     <div class="text-center">
-      <h2>Notey.</h2>
+      <h2>Notey. 📝</h2>
     </div>
     <div class="collapse navbar-collapse  w-auto" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="homepage.php">
-            <span class="nav-link-text ms-1">Home</span>
+            <span class="nav-link-text ms-1">🏠 Home</span>
           </a>
         </li>
         <li class="nav-item mb-2"">
-          <a class="nav-link  active" href="../pages/dashboard.html">
-            <span class="nav-link-text ms-1">Notes</span>
+          <a class="nav-link  active" href="newNotes.php">
+            <span class="nav-link-text ms-1">➕ New Note</span>
+          </a>
+        </li>
+        <li class="nav-item mb-2"">
+          <a class="nav-link  active" href="allNotes.php">
+            <span class="nav-link-text ms-1">📖 View All Notes</span>
           </a>
         </li>
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="resetPassword.php">
-            <span class="nav-link-text ms-1">Reset Password</span>
+            <span class="nav-link-text ms-1">🔐 Reset Password</span>
           </a>
         </li>
+        <?php if ($_SESSION["role"] == 1){ ?>
+          <li class="nav-item mb-2"">
+          <a class="nav-link  active" href="allUser.php">
+            <span class="nav-link-text ms-1">👥 View All User</span>
+          </a>
+        </li>
+        <?php }?>
         <li class="nav-item mb-2"">
           <a class="nav-link  active" href="logout.php">
-            <span class="nav-link-text ms-1">Logout</span>
+            <span class="nav-link-text ms-1">🚪 Logout</span>
           </a>
         </li>
       </ul>
     </div>
   </aside>
-  <div class="main-content d-flex justify-content-center" style="margin-top:20vh;">
-    <h2>Welcome to Notey,  <?php echo htmlspecialchars($_SESSION["username"]); ?>!</h2>
+  <div class="outer-wrapper">
+    <div class="main-content d-flex justify-content-center" style="margin-top:20vh;">
+      <h1>Welcome to Notey,  <?php echo htmlspecialchars($_SESSION["username"]);?>! 🤓 🙌🏼</h1>
+    </div>
   </div>
   </div>
   <!--   Core JS Files   -->
