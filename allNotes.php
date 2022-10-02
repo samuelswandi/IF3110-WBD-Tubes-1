@@ -74,7 +74,7 @@ mysqli_close($dbConn);
         <script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
         <style>
             .outer-wrapper{height: 80vh; margin-left:15vw; display: flex; margin: auto; justify-content: center; align-items: center;}
-            .inner-wrapper{position: absolute; background-color: white; border-radius: 10px; padding: 30px; left: 20vw; top: 24vh; bottom: 10vh; width: 60vw; overflow: scroll;}
+            .inner-wrapper{position: absolute; background-color: white; border-radius: 10px; padding: 30px; left: 20vw; top: 24vh; bottom: 10vh; width: 60vw; overflow: scroll; height: fit-content;}
             .main-content{width: 100vw; height: 100vh;}
             .all-notes-title{position: absolute; left: 25vw; top: 15vh;}
             .all-notes-list{display: flex; flex-direction: column; row-gap: 40px;}
